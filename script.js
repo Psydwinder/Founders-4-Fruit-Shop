@@ -55,7 +55,7 @@ function buyButtonClicked() {
   updatetotal();
 }
 
-// Reomve Items From Cart
+// Remove Items From Cart
 function removeCartItem(event) {
   var buttonClicked = event.target;
   buttonClicked.parentElement.remove();
@@ -91,15 +91,16 @@ function addProductToCart(title, price, productImg) {
       return;
     }
   }
-  var cartBoxContent = `
-                        <img src="${productImg}" alt="" class="cart-img">
-                        <div class="detail-box">
-                            <div class="cart-product-title">${title}</div>
-                            <div class="cart-price">${price}</div>
-                            <input type="number" value="1" class="cart-quantity">
-                        </div>
-                        <!-- Remove Cart -->
-                        <i class='bx bxs-trash-alt cart-remove' ></i>`;
+  var cartBoxContent = 
+  `
+  <img src="${productImg}" alt="" class="cart-img">
+  <div class="detail-box">
+  <div class="cart-product-title">${title}</div>
+  <div class="cart-price">${price}</div>
+  <input type="number" value="1" class="cart-quantity">
+  </div>
+  <!-- Remove Cart -->
+  <i class='bx bxs-trash-alt cart-remove' ></i>`;
   cartShopBox.innerHTML = cartBoxContent;
   cartItems.append(cartShopBox);
   cartShopBox
