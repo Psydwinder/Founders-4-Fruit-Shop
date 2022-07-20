@@ -84,6 +84,12 @@ header {
 .cart.active {
   right: 0;
 }
+
+.cart-box.hidden {
+  opacity: 0;
+  margin-top: -100px;
+}
+
 .cart-title {
   text-align: center;
   font-size: 1.5rem;

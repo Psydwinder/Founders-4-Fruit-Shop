@@ -2,9 +2,12 @@
 let cartIcon = document.querySelector("#cart-icon");
 let cart = document.querySelector(".cart");
 let closeCart = document.querySelector("#close-cart");
+let contents = document.querySelector(".cart-box");
+
 // Open Cart
 cartIcon.onclick = () => {
   cart.classList.add("active");
+  contents.classList.add("hidden");
 };
 
 // Close Cart
@@ -91,8 +94,7 @@ function addProductToCart(title, price, productImg) {
       return;
     }
   }
-  var cartBoxContent = 
-  `
+  var cartBoxContent = `
   <img src="${productImg}" alt="" class="cart-img">
   <div class="detail-box">
   <div class="cart-product-title">${title}</div>
