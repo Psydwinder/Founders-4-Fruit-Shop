@@ -42,6 +42,7 @@ function ready() {
   for (let i = 0; i < addCart.length; i++) {
     let button = addCart[i];
     button.addEventListener("click", addCartClicked);
+    contents.classList.add("hidden");
   }
   // Buy Button Work
   document
