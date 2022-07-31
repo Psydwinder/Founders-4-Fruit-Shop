@@ -3,6 +3,7 @@ let cartIcon = document.querySelector("#cart-icon");
 let cart = document.querySelector(".cart");
 let closeCart = document.querySelector("#close-cart");
 let contents = document.querySelector(".cart-box");
+let quantityCounter = document.querySelector(".circle");
 
 // Open Cart
 cartIcon.onclick = () => {
@@ -82,7 +83,6 @@ function addCartClicked(event) {
   let productImg = shopProducts.getElementsByClassName("product-img")[0].src;
   addProductToCart(title, price, productImg);
   updatetotal();
-  cart.classList.add("active");
 }
 function addProductToCart(title, price, productImg) {
   let cartShopBox = document.createElement("div");
@@ -119,6 +119,7 @@ function updatetotal() {
   let cartContent = document.getElementsByClassName("cart-content")[0];
   let cartBoxes = cartContent.getElementsByClassName("cart-box");
   let total = 0;
+  let quantityCount = 0;
   for (let i = 0; i < cartBoxes.length; i++) {
     let cartBox = cartBoxes[i];
     let priceElement = cartBox.getElementsByClassName("cart-price")[0];
@@ -126,9 +127,15 @@ function updatetotal() {
     let price = parseFloat(priceElement.innerText.replace("£", ""));
     let quantity = quantityElement.value;
     total = total + price * quantity;
+    quantityCount = parseInt(quantityCount) + parseInt(quantity);
   }
   // If price Contain some Cents Value
   total = Math.round(total * 100) / 100;
 
   document.getElementsByClassName("total-price")[0].innerText = "£" + total;
+
+  if (quantityCount > 0) {
+    quantityCounter.classList.remove("inactive");
+    quantityCounter.innerHTML = "<p>" + quantityCount + "</p>";
+  }
 }
